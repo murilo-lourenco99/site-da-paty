@@ -1,0 +1,144 @@
+:root {
+  --gold: #e79b00;
+  --light-bg: #fff5ba;
+  --dark: #333;
+  --white: #ffffff;
+  --shadow: 0 0.25rem 0.9rem rgba(0, 0, 0, 0.1);
+  --radius: 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  color: var(--dark);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  background: var(--white);
+  padding: 1.5rem 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+.logo {
+  width: 60vw;
+  max-width: 320px;
+  min-width: 180px;
+  height: auto;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+}
+.main-nav a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.main-nav a.active {
+  color: var(--gold);
+}
+
+.main-nav a:hover {
+  color: var(--gold);
+  transition: 0.5s;
+}
+
+.page-title {
+  color: #000000;
+  font-size: 1.8rem;
+  margin: 2.5rem 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.main-footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  margin-top: auto;
+}
+
+/* --- Estilos para Celular (Mobile) --- */
+@media (max-width: 768px) {
+  .main-header {
+    display: flex !important;
+    justify-content: center !important; /* Centraliza a logo */
+    align-items: center !important;
+    position: relative;
+    padding: 10px 5%;
+    min-height: 70px;
+  }
+
+  /* Ícone na Esquerda */
+  .menu-icon {
+    display: flex !important;
+    flex-direction: column;
+    gap: 5px;
+    position: absolute;
+    left: 5%;
+    z-index: 10001; /* Fica acima de tudo para ser clicável */
+    cursor: pointer;
+  }
+
+  .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Aba Lateral (Menu) */
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Escondido na esquerda */
+    width: 60%; /* Ocupa 60% da tela */
+    height: 100vh;
+    background-color: #ffffff !important;
+    z-index: 10000; /* ACIMA DA SOMBRA */
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    padding-top: 80px;
+  }
+
+  .main-nav.active {
+    left: 0; /* Desliza para dentro */
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 30px;
+    gap: 20px;
+    display: flex !important;
+  }
+}

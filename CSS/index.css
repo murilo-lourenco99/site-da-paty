@@ -1,0 +1,39 @@
+.btn-highlight {
+  display: inline-block;
+  color: var(--gold);
+  border: 0.2rem solid var(--gold);
+  padding: 0.8rem 2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-highlight:hover {
+  background: var(--gold);
+  color: white;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 colunas no celular */
+  gap: 1rem;
+  padding: 1rem 5%;
+  margin-bottom: 2rem;
+}
+
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 2px solid rgba(231, 155, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas no PC */
+    padding: 2rem 10%;
+  }
+}

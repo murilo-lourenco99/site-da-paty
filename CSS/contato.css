@@ -1,0 +1,85 @@
+.contato-central {
+  text-align: center;
+  padding: 2rem 5%;
+}
+.links-contato {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0 4rem 0;
+}
+.btn-redes {
+  width: 4.5rem;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 2.2rem;
+  color: white;
+  text-decoration: none;
+  box-shadow: var(--shadow);
+}
+.btn-redes.whatsapp {
+  background: #25d366;
+}
+.btn-redes.instagram {
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+.location-section {
+  margin-top: 2rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(231, 155, 0, 0.2);
+}
+.location-container {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+.location-image img {
+  width: 100%;
+  height: 35vh;
+  object-fit: cover;
+}
+.location-info {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+.btn-maps {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--gold);
+  color: white;
+  text-decoration: none;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .location-container {
+    flex-direction: row;
+  }
+  .location-image,
+  .location-info {
+    flex: 1;
+  }
+}

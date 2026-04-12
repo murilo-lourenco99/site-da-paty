@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  },
+  "name": "site-da-paty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.mjs",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "nodemon server.mjs",
+    "gerar": "node js/gerador_total.mjs",
+    "vigia": "nodemon --watch produtos --watch perfuracoes --ext jpg,png,jpeg --exec \"node js/gerador_total.mjs\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

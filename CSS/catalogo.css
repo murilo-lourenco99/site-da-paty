@@ -1,0 +1,103 @@
+/* Configuração base dos cards */
+.card-produto {
+  display: flex; /* O filtro altera entre flex e none */
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Botões de filtro */
+.container-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.botao-filtro {
+  padding: 8px 16px;
+  border: 1px solid #333;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.botao-filtro.ativo {
+  background: #333;
+  color: #fff;
+}
+
+/* Grade de produtos */
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Ajuste nos cards para ficarem melhores em colunas menores */
+.card-produto {
+  background: var(--white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+/* Ajuste na altura da imagem para não ficar gigante no celular */
+.img-produto {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Mantém a foto quadrada e proporcional */
+  object-fit: cover;
+}
+
+.info-produto {
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.nome-joia {
+  font-size: 1.1rem;
+} /* Fonte levemente menor para o grid de 2 colunas */
+
+.container-filtros {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.botao-filtro {
+  padding: 0.6rem 1.5rem;
+  border: 2px solid var(--gold);
+  background: #ffffff;
+  color: var(--gold);
+  border-radius: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.botao-filtro.ativo {
+  background: var(--gold);
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .grade-produtos {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding: 2rem 5%;
+  }
+
+  .nome-joia {
+    font-size: 1.4rem;
+  }
+  .img-produto {
+    aspect-ratio: 1 / 1.2;
+  }
+}
