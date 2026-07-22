@@ -13,7 +13,7 @@
     "dev": "nodemon server.mjs",
     "gerar": "node js/gerador_total.mjs",
     "vigia": "nodemon --watch produtos --watch perfuracoes --ext jpg,png,jpeg --exec \"node js/gerador_total.mjs\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --test"
   },
   "keywords": [],
   "author": "",

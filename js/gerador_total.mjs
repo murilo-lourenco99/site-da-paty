@@ -41,8 +41,7 @@ const injetarNoHtml = (caminho, id, listaCards) => {
 
   let conteudo = fs.readFileSync(caminho, "utf-8");
 
-  // Procura o <div id="id" ...> ignorando espaços ou ordem de atributos
-  const regex = new RegExp(`<div id="${id}"[^>]*>`, "i");
+  const regex = new RegExp(`<div\\s+id="${id}"[^>]*>`, "i");
   const match = conteudo.match(regex);
 
   if (!match) {
@@ -52,20 +51,48 @@ const injetarNoHtml = (caminho, id, listaCards) => {
     return;
   }
 
-  const marcadorIni = match[0];
-  const marcadorFim = `</div>`;
+  const inicioTag = match.index;
+  const fimTag = inicioTag + match[0].length;
+  const restante = conteudo.slice(fimTag);
+  const regexTags = /<\/?div\b[^>]*>/gi;
 
-  const partes = conteudo.split(marcadorIni);
-  const resto = partes[1].substring(partes[1].indexOf(marcadorFim));
+  let depth = 1;
+  let fimConteudo = -1;
+  let tagMatch;
+
+  while ((tagMatch = regexTags.exec(restante))) {
+    const tag = tagMatch[0];
+
+    if (tag.startsWith("</")) {
+      depth -= 1;
+      if (depth === 0) {
+        fimConteudo = fimTag + tagMatch.index;
+        break;
+      }
+    } else {
+      depth += 1;
+    }
+  }
+
+  if (fimConteudo === -1) {
+    console.error(`❌ Erro: Não consegui localizar o fechamento do container ${id}.`);
+    return;
+  }
 
   const novoConteudo =
-    partes[0] + marcadorIni + "\n" + listaCards.join("\n") + "\n" + resto;
+    conteudo.slice(0, fimTag) +
+    "\n" +
+    listaCards.join("\n") +
+    "\n" +
+    conteudo.slice(fimConteudo);
 
   fs.writeFileSync(caminho, novoConteudo, "utf-8");
   console.log(
     `💾 Ficheiro gravado: ${caminho} (${listaCards.length} cards inseridos)`,
   );
 };
+
+export { injetarNoHtml };
 
 async function iniciar() {
   try {
