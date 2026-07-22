@@ -9,9 +9,9 @@
   "main": "server.mjs",
   "devDependencies": {},
   "scripts": {
-    "start": "node server.mjs",
-    "dev": "nodemon server.mjs",
-    "test": "node --test"
+    "start": "node server.ms",
+    "dev": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
